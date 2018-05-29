@@ -1,0 +1,8 @@
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\bin\Debug\CLRviaCSharp.exe.config
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\bin\Debug\CLRviaCSharp.exe
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\bin\Debug\CLRviaCSharp.pdb
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\obj\Debug\CLRviaCSharp.csprojResolveAssemblyReference.cache
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\obj\Debug\CLRviaCSharp.exe
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\obj\Debug\CLRviaCSharp.pdb
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\bin\Debug\TestDll.dll
+D:\MS VisualStudio\VSWorkspace\CLRviaCSharp\CLRviaCSharp\bin\Debug\TestDll.pdb
