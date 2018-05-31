@@ -12,7 +12,7 @@ namespace CLRviaCSharp
     [System.Diagnostics.CodeAnalysis.SuppressMessage("?", "1")]
     class Chapter18_Attribute
     {
-        static void Main(string[] args)
+        static void Main18(string[] args)
         {
             //Test usage
             AttrCooperator ac = new AttrCooperator();
