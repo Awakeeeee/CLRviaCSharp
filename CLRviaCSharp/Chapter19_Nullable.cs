@@ -8,7 +8,7 @@ namespace CLRviaCSharp
 {
     class Chapter19_Nullable
     {
-        static void Main(string[] args)
+        static void Main19(string[] args)
         {
             #region 赋值和转型
             Nullable<int> a = 5; //implicit int -> int?

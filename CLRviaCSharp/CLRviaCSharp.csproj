@@ -73,6 +73,8 @@
     <Compile Include="Chapter15_Enum.cs" />
     <Compile Include="Chapter16_Array.cs" />
     <Compile Include="Chapter17_Delegate.cs" />
+    <Compile Include="Chapter19_Nullable.cs" />
+    <Compile Include="Chapter20_Exception.cs" />
     <Compile Include="Chapter5_Types.cs" />
     <Compile Include="Chapter6_ClassAndMember.cs" />
     <Compile Include="Chapter7_FieldAndConst.cs" />
