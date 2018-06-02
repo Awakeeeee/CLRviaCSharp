@@ -21,6 +21,8 @@ namespace CLRviaCSharp
             //Main
             //---end
             OuterCall();
+
+            CheckException();
         }
 
         #region 内层finally
@@ -30,7 +32,15 @@ namespace CLRviaCSharp
         static void OuterCall()
         {
             try { MidleCall(); }
-            catch (InvalidCastException e) { Console.WriteLine("catch block in catch method"); }  //8. match and come in
+            catch (InvalidCastException e)
+            {
+                Console.WriteLine("catch block in catch method");
+                //stack trace property
+                Console.WriteLine("StackTrace Property from Exception: " + e.StackTrace);
+                //StackTrace class
+                System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(e, 0, false);
+                Console.WriteLine("StackTrace Class instance info: " + st.ToString());
+            }  //8. match and come in
             finally { Console.WriteLine("the finally block in catch method"); } //9. 'internal finally' ends, this finally calls
         }
         static void MidleCall()
@@ -42,10 +52,44 @@ namespace CLRviaCSharp
         }
         static void InnerCall()
         {
-            try { throw new InvalidCastException(); } //1. throw exception
-            catch (ArgumentException e) { } //2. not matching
+            try
+            {
+                //System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
+                //Console.WriteLine("StackTrace Class instance info: " + st.ToString());
+                throw new InvalidCastException();
+            } //1. throw exception
+            catch (ArgumentException e){} //2. not matching
             finally { Console.WriteLine("the finally block in exception method(internal finally)"); } //3. so finally is called
             //4. (实际是方法带着未处理的问题返回了)check callstack, go to MidleCall()
+        }
+        #endregion
+
+        #region Check Exception Info
+        [System.Runtime.CompilerServices.MethodImpl]
+        static void CheckException()
+        {
+            Console.WriteLine(Environment.NewLine);
+            try
+            {
+                FieldAccessException fe = new FieldAccessException("Reason: TEST EXCEPTION");
+                Console.WriteLine("Stack Trace when instantiate: " + fe.StackTrace); //at this time null
+                throw fe;
+                //throw new ArgumentNullException();
+                //throw new Exception(); //!!!永远都不要抛出代表所有错误的Exception本身
+            }
+            catch (Exception e) //CLR记录的异常
+            {
+                Console.WriteLine("Source: " + e.Source);
+                Console.WriteLine("Message: " + e.Message);
+                Console.WriteLine("Data: " + e.Data.Count);
+                Console.WriteLine("Strack Trace:\r\n" + e.StackTrace);
+                Console.WriteLine("Target Site: " + e.TargetSite);
+                Console.WriteLine("Help Link: " + e.HelpLink);
+                Console.WriteLine("Inner Exception: " + e.InnerException);
+
+                throw new InvalidCastException(); //CLR记录的异常改为这个, 总是记录最新的异常
+                throw;  //如果仅仅写throw关键字, 这叫重新抛出当前异常, CLR不会修改当前记录
+            }
         }
         #endregion
     }
