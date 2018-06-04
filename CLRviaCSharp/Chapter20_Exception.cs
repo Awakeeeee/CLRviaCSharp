@@ -25,11 +25,15 @@ namespace CLRviaCSharp
 
             //CheckException();
 
-            HeWakesUp();
-            Environment.FailFast("i just try this");
-            string s = "fsdf";
-            char[] arr = s.Where(c => c == 'f').ToArray();
-            Console.WriteLine(arr.Length);
+            //HeWakesUp();
+
+            //Environment.FailFast("i just try this");
+            //string s = "fsdf";
+            //char[] arr = s.Where(c => c == 'f').ToArray();
+            //Console.WriteLine(arr.Length);
+            
+            LogInnerException();
+            AboutDynamic();
         }
 
         #region 内层finally
@@ -193,5 +197,68 @@ namespace CLRviaCSharp
             }
         }
         #endregion
+
+        #region 反射和dynamic调用时异常重抛的区别
+        internal sealed class ExClass
+        {
+            public void ErrorMethod()
+            {
+                throw new InvalidCastException();
+            }
+        }
+        static void LogInnerException()
+        {
+            object o = new ExClass();
+            try
+            {
+                System.Reflection.MethodInfo m = o.GetType().GetMethod("ErrorMethod");
+                //CLR在内部捕捉这个调用的所有错误,并转为TargetInvocation重抛
+                //相当于真正的原错误没能顺利往上层传递
+                m.Invoke(o, null);
+            }
+            catch (System.Reflection.TargetInvocationException e)
+            {
+                Console.WriteLine("CLR reflection:\r\n\r\ncatch: " + e.Message + "\r\n\r\nactual: " + e.InnerException.Message);
+                //throw e.InnerException;
+            }
+        }
+
+        static void AboutDynamic()
+        {
+            dynamic d = new ExClass();
+            try
+            {
+                //CLR在这里就不会去捕捉错误并重新抛出, 于是原错误正常向上传递
+                d.ErrorMethod();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\r\nDynamic call: catch: " + e.Message);
+                //throw;
+            }
+        }
+        #endregion
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
