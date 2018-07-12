@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLRviaCSharp", "CLRviaCSharp\CLRviaCSharp.csproj", "{63CC470B-755B-48B9-974B-C12EEE75791C}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonComparison", "PythonComparison\PythonComparison.pyproj", "{08E49E8D-11A6-43D6-8A2E-710B65CAEBE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDll", "TestDll\TestDll.csproj", "{E424820C-040C-4ADD-96DC-20E453A485DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostSDK", "HostSDK\HostSDK.csproj", "{80CA20E9-73B8-42C0-A835-6D28A9168F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAddIn", "UserAddIn\UserAddIn.csproj", "{A6F6185F-CB0B-44F8-A01D-DD521877B0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostApp", "HostApp\HostApp.csproj", "{F6CF27BD-254D-4224-B0B4-6C402FB14ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,8 +31,23 @@ Global
 		{E424820C-040C-4ADD-96DC-20E453A485DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E424820C-040C-4ADD-96DC-20E453A485DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E424820C-040C-4ADD-96DC-20E453A485DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80CA20E9-73B8-42C0-A835-6D28A9168F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CA20E9-73B8-42C0-A835-6D28A9168F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CA20E9-73B8-42C0-A835-6D28A9168F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CA20E9-73B8-42C0-A835-6D28A9168F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F6185F-CB0B-44F8-A01D-DD521877B0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F6185F-CB0B-44F8-A01D-DD521877B0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F6185F-CB0B-44F8-A01D-DD521877B0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F6185F-CB0B-44F8-A01D-DD521877B0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CF27BD-254D-4224-B0B4-6C402FB14ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CF27BD-254D-4224-B0B4-6C402FB14ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CF27BD-254D-4224-B0B4-6C402FB14ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CF27BD-254D-4224-B0B4-6C402FB14ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {370301FC-BCA4-4F2D-9683-6AB383761E89}
 	EndGlobalSection
 EndGlobal

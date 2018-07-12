@@ -1,0 +1,12 @@
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\bin\Debug\netstandard2.0\UserAddIn.deps.json
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\bin\Debug\netstandard2.0\UserAddIn.dll
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\bin\Debug\netstandard2.0\UserAddIn.pdb
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\bin\Debug\netstandard2.0\HostSDK.dll
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\bin\Debug\netstandard2.0\HostSDK.pdb
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.csprojAssemblyReference.cache
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.csproj.CoreCompileInputs.cache
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.AssemblyInfoInputs.cache
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.AssemblyInfo.cs
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.csproj.CopyComplete
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.dll
+D:\Projects\VSWorkspace\CLRviaCSharp\UserAddIn\obj\Debug\netstandard2.0\UserAddIn.pdb

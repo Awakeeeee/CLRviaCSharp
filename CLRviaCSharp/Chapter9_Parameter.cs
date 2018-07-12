@@ -132,6 +132,7 @@ namespace CLRviaCSharp
         }
     }
 
+    [Serializable]
     class MyRefType
     {
         public int idx;

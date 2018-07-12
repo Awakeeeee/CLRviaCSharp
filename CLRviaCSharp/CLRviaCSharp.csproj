@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,6 +48,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -75,6 +76,21 @@
     <Compile Include="Chapter17_Delegate.cs" />
     <Compile Include="Chapter19_Nullable.cs" />
     <Compile Include="Chapter20_Exception.cs" />
+    <Compile Include="Chapter21_GC.cs" />
+    <Compile Include="Chapter21_GC2.cs" />
+    <Compile Include="Chapter21_GC3.cs" />
+    <Compile Include="Chapter21_GC4.cs" />
+    <Compile Include="Chapter21_GC5.cs" />
+    <Compile Include="Chapter22_AppDomain.cs" />
+    <Compile Include="Chapter22_AppDomain2.cs" />
+    <Compile Include="Chapter23_Assembly.cs" />
+    <Compile Include="Chapter23_Assembly_MemberInfo.cs" />
+    <Compile Include="Chapter23_Assembly_ObjectInstance.cs" />
+    <Compile Include="Chapter23_Assembly_Reflection.cs" />
+    <Compile Include="Chapter24_Serialization.cs" />
+    <Compile Include="Chapter24_Serialization_Surrogate.cs" />
+    <Compile Include="Chapter25_Thread.cs" />
+    <Compile Include="Chapter25_Thread_BackgroundThread.cs" />
     <Compile Include="Chapter5_Types.cs" />
     <Compile Include="Chapter6_ClassAndMember.cs" />
     <Compile Include="Chapter7_FieldAndConst.cs" />

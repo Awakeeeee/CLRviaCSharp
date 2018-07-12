@@ -9,7 +9,7 @@ namespace CLRviaCSharp
 {
     class Chapter20_Exception
     {
-        static void Main(string[] args)
+        static void Main20(string[] args)
         {
             //CallStack:
             //---start
@@ -31,9 +31,11 @@ namespace CLRviaCSharp
             //string s = "fsdf";
             //char[] arr = s.Where(c => c == 'f').ToArray();
             //Console.WriteLine(arr.Length);
-            
-            LogInnerException();
-            AboutDynamic();
+
+            //LogInnerException();
+            //AboutDynamic();
+
+            TryCER(); // TODO ????????????????????????????????????????????????????????????????????????
         }
 
         #region 内层finally
@@ -235,6 +237,53 @@ namespace CLRviaCSharp
             {
                 Console.WriteLine("\r\nDynamic call: catch: " + e.Message);
                 //throw;
+            }
+        }
+        #endregion
+
+        #region 限制执行区域 Constained Exception Region CER
+        //catch和finally中处理异常时又抛出异常是不理想的情况, 说明程序'对错误没有好的适应力'
+        //CER让catch和finally先于try执行, 如果有异常, 则try块不会执行
+        static void TryCER()
+        {
+            //PrepareConstrainedRegions必须在try上面调用, 让CER机制生效 (???)
+            System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions();
+            try
+            {
+                Console.WriteLine("try block is called");
+            }
+            finally
+            {
+                ClassCER.MethodOne();
+                ClassCER.MethodTwo();
+                ClassCER.MethodThree();
+            }
+        }
+
+        internal sealed class ClassCER
+        {
+            static ClassCER()
+            {
+                Console.WriteLine("Type static constructor is called");
+            }
+
+            //标记了ReliabilityContractAttribute, 并且Consistency参数是WillNot或者May的方法，JIT才会提前编译 (???)
+            //Cer这个参数只是给用户提供信息的
+            [System.Runtime.ConstrainedExecution.ReliabilityContract(System.Runtime.ConstrainedExecution.Consistency.WillNotCorruptState, System.Runtime.ConstrainedExecution.Cer.Success)]
+            public static void MethodOne()
+            {
+                Console.WriteLine("method that guarantees will not correupt status, and will succeed");
+            }
+
+            [System.Runtime.ConstrainedExecution.ReliabilityContract(System.Runtime.ConstrainedExecution.Consistency.MayCorruptAppDomain, System.Runtime.ConstrainedExecution.Cer.None)]
+            public static void MethodTwo()
+            {
+                Console.WriteLine("method that may corrupt appdomain status, and no cer info");
+            }
+
+            public static void MethodThree()
+            {
+                Console.WriteLine("method has no ReliabilityContract attribute");
             }
         }
         #endregion

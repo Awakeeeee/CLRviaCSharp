@@ -35,6 +35,9 @@ namespace CLRviaCSharp
             Node tail = new NodeWithData<int>(50, null);
             tail = new NodeWithData<string>("blaaa", tail);
             tail = new NodeWithData<MyValue>(new MyValue(), tail);
+
+            Console.WriteLine(Environment.NewLine);
+            ObserveListPerformance();
         }
 
         #region Generic相比Inheritance节省了对值类型boxing的消耗
@@ -93,6 +96,36 @@ namespace CLRviaCSharp
             }
         }
 
+        #endregion
+
+        #region 使用OperationTimer观察ArrayList和List的性能
+        static void ObserveListPerformance()
+        {
+            int count = 10000000;
+
+            using (OperationTimer ot = new OperationTimer("List<Int32>"))
+            {
+                List<Int32> l = new List<int>(count);
+                for (int i = 0; i < count; i++)
+                {
+                    l.Add(1);
+                    Int32 x = l[i];
+                }
+                l = null;
+            }
+            //timer dispose will show performance info
+
+            using (OperationTimer ot = new OperationTimer("ArrayList of Int32"))
+            {
+                ArrayList l = new ArrayList();
+                for (int i = 0; i < count; i++)
+                {
+                    l.Add(1);
+                    Int32 x = (Int32)l[i];
+                }
+                l = null;
+            }
+        }
         #endregion
     }
 
@@ -210,5 +243,33 @@ namespace CLRviaCSharp
 
     //将T约束为一个值类型是没有意义的
     //internal class CV<T> where T : Int32 { }
+    #endregion
+
+    #region 观察ArrayList和List<T>的性能的OperationTimer类
+    internal sealed class OperationTimer : IDisposable
+    {
+        private Int64 m_start_time;
+        private string op_name;
+        private Int32 m_gc_count;
+
+        public OperationTimer(string name)
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();   //the finalizing objs are collected as well
+
+            op_name = name;
+            m_start_time = Stopwatch.GetTimestamp();
+            m_gc_count = GC.CollectionCount(0);
+        }
+
+        public void Dispose()
+        {
+            double timespan = (Stopwatch.GetTimestamp() - m_start_time) / (double)Stopwatch.Frequency;
+            int gc = GC.CollectionCount(0) - m_gc_count;
+
+            Console.WriteLine("Operation of {0} : time used {1, 6:###.00}, gc runs {2}", op_name, timespan, gc);
+        }
+    }
     #endregion
 }

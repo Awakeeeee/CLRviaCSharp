@@ -24,6 +24,14 @@ namespace CLRviaCSharp
             System.Console.Write("\r\n");
         }
 
+        public static void Log(this string[] stringarr)
+        {
+            foreach (string s in stringarr)
+            {
+                System.Console.WriteLine(s);
+            }
+        }
+
         //向Enum添加方法
         internal static MyBitFlag Clear(this MyBitFlag e, MyBitFlag flag)
         {

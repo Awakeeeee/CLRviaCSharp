@@ -1,0 +1,8 @@
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\bin\Debug\netstandard2.0\HostSDK.deps.json
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\bin\Debug\netstandard2.0\HostSDK.dll
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\bin\Debug\netstandard2.0\HostSDK.pdb
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\obj\Debug\netstandard2.0\HostSDK.csproj.CoreCompileInputs.cache
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\obj\Debug\netstandard2.0\HostSDK.AssemblyInfoInputs.cache
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\obj\Debug\netstandard2.0\HostSDK.AssemblyInfo.cs
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\obj\Debug\netstandard2.0\HostSDK.dll
+D:\Projects\VSWorkspace\CLRviaCSharp\HostSDK\obj\Debug\netstandard2.0\HostSDK.pdb
